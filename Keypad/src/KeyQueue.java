@@ -15,7 +15,11 @@ public class KeyQueue implements KeypadReceiver {
         charList = new LinkedList<Character>();
     }
 
-
+    /**
+    * Implementing the KeypadReceiver method.
+    * Allows gui to write to a single interface method
+    * when a key is pushed.
+    */
     @Override
     public void addKeyPress(char key) {
         charList.add(key);
