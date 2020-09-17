@@ -23,7 +23,7 @@ public class Timer {
      * @return boolean
      */
     public boolean timeout() {
-        return time > System.currentTimeMillis();
+        return time < System.currentTimeMillis();
     }
 
     /**
