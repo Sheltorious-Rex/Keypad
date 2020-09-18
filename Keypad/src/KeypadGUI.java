@@ -121,6 +121,7 @@ public class KeypadGUI extends Application{
             redLight1Off();
             greenLight1Off();
             yellowLight1Off();
+            openLock();
         });
         kp1_keys[10] = starBtn;
 
@@ -133,6 +134,7 @@ public class KeypadGUI extends Application{
             redLight1On();
             greenLight1On();
             yellowLight1On();
+            shutLock();
         });
         kp1_keys[11] = poundBtn;
 
@@ -227,6 +229,7 @@ public class KeypadGUI extends Application{
             redLight2Off();
             greenLight2Off();
             yellowLight2Off();
+            openLock();
         });
         kp2_keys[10] = starBtn;
 
@@ -239,7 +242,7 @@ public class KeypadGUI extends Application{
             redLight2On();
             greenLight2On();
             yellowLight2On();
-
+            shutLock();
         });
         kp2_keys[11] = poundBtn;
     }
@@ -347,5 +350,16 @@ public class KeypadGUI extends Application{
         HBox lightBox = (HBox)kpBox.getChildren().get(0);
         Circle greenLight = (Circle)lightBox.getChildren().get(2);
         greenLight.setFill(GREY);
+    }
+
+    public void openLock(){
+        HBox lockBox = (HBox) mainBox.getChildren().get(1);
+        Label lockLabel = (Label) lockBox.getChildren().get(0);
+        lockLabel.setText("Unlocked");
+    }
+    public void shutLock(){
+        HBox lockBox = (HBox)mainBox.getChildren().get(1);
+        Label lockLabel = (Label) lockBox.getChildren().get(0);
+        lockLabel.setText("Locked");
     }
 }
