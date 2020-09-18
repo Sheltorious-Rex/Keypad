@@ -31,6 +31,6 @@ public class Timer {
      * @param k int
      */
     public void set(int k) {
-        time = k*1000 + System.currentTimeMillis();
+        time = k + System.currentTimeMillis();
     }
 }

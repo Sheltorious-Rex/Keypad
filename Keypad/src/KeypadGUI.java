@@ -15,8 +15,8 @@ import javafx.scene.shape.Circle;
 public class KeypadGUI extends Application{
 
     private Stage primaryStage;
-    KeyQueue keyQueue1;
-    KeyQueue keyQueue2;
+    KeypadReceiver keyQueue1;
+    KeypadReceiver keyQueue2;
     Button[] kp1_keys;
     Button[] kp2_keys;
     Color RED = Color.valueOf("CRIMSON");
@@ -24,7 +24,7 @@ public class KeypadGUI extends Application{
     Color GREEN = Color.valueOf("LIME");
     Color GREY = Color.valueOf("DARKSLATEGREY");
 
-    KeypadGUI ( Stage primaryStage, KeyQueue kq1,KeyQueue kq2){
+    KeypadGUI ( Stage primaryStage, KeypadReceiver kq1,KeypadReceiver kq2){
 //        System.out.println("KeypadGUI constructor");
 
         //Get reference to the KeyQueue
