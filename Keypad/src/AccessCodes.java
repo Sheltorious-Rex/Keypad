@@ -29,7 +29,11 @@ public class AccessCodes {
         }
     }
     
-    //change manager code. newMgrCode already checked for validity
+    /**
+     * A method to change managerCode. 
+     * newMgrCode already checked for validity
+     * @return boolean
+     */
     public boolean changeMgrCode(String newMgrCode){
         try {
             //initialize a new file
@@ -49,7 +53,12 @@ public class AccessCodes {
         }
         return true;
     }
-    //change user code. newUserCode already checked for validity
+    
+     /**
+     * A method to change userCode. 
+     * newUserode already checked for validity
+     * @return boolean
+     */
     public boolean changeUserCode(String newUserCode){
         try {
             //initialize a new file
@@ -69,22 +78,22 @@ public class AccessCodes {
         }
         return true;
     }
-    //check for match for user code
+    
+    /**
+    * Check for match with userCode
+    * @return boolean
+    */
     public boolean checkUserCode(String codeToCheck){
         //returns true if codeToCheck == system's user code, false otherwise
         return codeToCheck.equals(userCode);
     }
-    //check for match for manager code
+    
+    /**
+    * Check for match with managerCode
+    * @return boolean
+    */
     public boolean checkMgrCode(String codeToCheck){
         //returns true if codeToCheck == system's manager code, false otherwise
         return codeToCheck.equals(managerCode);
-    }
-
-    public String getManagerCode() {
-        return managerCode;
-    }
-
-    public String getUserCode() {
-        return userCode;
     }
 }
