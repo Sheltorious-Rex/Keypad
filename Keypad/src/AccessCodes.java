@@ -5,11 +5,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-/*
-AccessCodes is a class that controls access to the SD Card and
-also verifies if a user input is equal to either the managerCode
-or userCode*/
-
+/**
+* AccessCodes is a class that controls access to the SD Card and
+* also verifies if a user input is equal to either the managerCode
+* or userCode
+*/
 public class AccessCodes {
 
     private String managerCode;//the system's manager code
@@ -20,8 +20,8 @@ public class AccessCodes {
             Scanner scanner = new Scanner(new File("SD_Card.txt"));
             /*get the manager and user code from the file. The manager code will
             always be first line, user code will always be second line.*/
-            managerCode = scanner.nextLine();
-            userCode = scanner.nextLine();
+            managerCode = scanner.nextLine();//default = "0000"
+            userCode = scanner.nextLine();   //default = "9999"
         }
         catch (FileNotFoundException e){
             System.out.println("SD_Card.txt file not found.");
