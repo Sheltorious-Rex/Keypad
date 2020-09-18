@@ -18,8 +18,8 @@ public class AccessCodes {
     public AccessCodes(){
         try{
             Scanner scanner = new Scanner(new File("SD_Card.txt"));
-            /*get the manager and user code from the file. manager code will always be first line,
-            user code will always be second line.*/
+            /*get the manager and user code from the file. The manager code will
+            always be first line, user code will always be second line.*/
             managerCode = scanner.nextLine();
             userCode = scanner.nextLine();
         }
@@ -36,11 +36,11 @@ public class AccessCodes {
      */
     public boolean changeMgrCode(String newMgrCode){
         try {
-            //initialize a new file
+            //initialize a new file. Overwrite SD_Card.txt
             FileWriter fileWriter = new FileWriter("SD_Card.txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
-            /*write to the new file with the new manager code on first line, while reserving the system's
-            current user code*/
+            /*write to the new file with the new manager code on first line, 
+            while reserving the system's current user code*/
             printWriter.printf("%s\n%s",newMgrCode,userCode);
             printWriter.close();
             //change manager code in the system
@@ -61,11 +61,11 @@ public class AccessCodes {
      */
     public boolean changeUserCode(String newUserCode){
         try {
-            //initialize a new file
+            //initialize a new file. Overwrite SD_Card.txt
             FileWriter fileWriter = new FileWriter("SD_Card.txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
-            /*write to the new file with the new user code on second line, while reserving the system's
-            current manager code*/
+            /*write to the new file with the new user code on second line,
+            while reserving the system's current manager code*/
             printWriter.printf("%s\n%s",managerCode,newUserCode);
             printWriter.close();
             //change the user code in the system
