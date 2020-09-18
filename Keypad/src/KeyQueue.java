@@ -30,6 +30,7 @@ public class KeyQueue implements KeypadReceiver {
      * Assumes the list is not empty.
      * @return next char that was pressed
      */
+    @Override
     public char pop() {
         char tempKey = 0;
         try {
@@ -47,6 +48,7 @@ public class KeyQueue implements KeypadReceiver {
      * Returns false if the list is empty.
      * @return boolean
      */
+    @Override
     public boolean hasNext() {
         return charList.size() > 0;
     }
