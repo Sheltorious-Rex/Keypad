@@ -8,7 +8,9 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		KeypadGUI gui = new KeypadGUI(primaryStage);
+		KeyQueue keyPadQueue1 = new KeyQueue();
+		KeyQueue keyPadQueue2 = new KeyQueue();
+		KeypadGUI gui = new KeypadGUI(primaryStage,keyPadQueue1, keyPadQueue2);
 	}
 
 	//    public static void main(String[] args){
