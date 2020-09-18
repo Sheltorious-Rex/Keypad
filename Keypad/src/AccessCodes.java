@@ -5,6 +5,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/*
+AccessCodes is a class that controls access to the SD Card and
+also verifies if a user input is equal to either the managerCode
+or userCode*/
+
 public class AccessCodes {
 
     private String managerCode;//the system's manager code
@@ -23,6 +28,7 @@ public class AccessCodes {
             System.exit(1);
         }
     }
+    
     //change manager code. newMgrCode already checked for validity
     public boolean changeMgrCode(String newMgrCode){
         try {
