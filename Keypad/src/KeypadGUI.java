@@ -14,6 +14,7 @@ import javafx.scene.shape.Circle;
 
 public class KeypadGUI extends Application{
 
+    private HBox mainBox;
     private Stage primaryStage;
     KeypadReceiver keyQueue1;
     KeypadReceiver keyQueue2;
@@ -53,7 +54,7 @@ public class KeypadGUI extends Application{
 
 //		System.out.println("initUI");
 
-        HBox mainBox = new HBox(3);
+        mainBox = new HBox(3);
 
         //Make the keypads
         mainBox.getChildren().add(makeKeyPad1());
@@ -117,6 +118,9 @@ public class KeypadGUI extends Application{
         starBtn.setOnAction((ActionEvent event) -> {
             System.out.println(event.getSource());
             keyQueue1.addKeyPress(starBtn.getText().charAt(0));
+            redLight1Off();
+            greenLight1Off();
+            yellowLight1Off();
         });
         kp1_keys[10] = starBtn;
 
@@ -126,12 +130,13 @@ public class KeypadGUI extends Application{
         poundBtn.setOnAction((ActionEvent event) -> {
 
             keyQueue1.addKeyPress(poundBtn.getText().charAt(0));
-//            while(keyQueue1.hasNext()){
-//                System.out.println(keyQueue1.pop());
-//            }
-
+            redLight1On();
+            greenLight1On();
+            yellowLight1On();
         });
         kp1_keys[11] = poundBtn;
+
+
     }
 
     private VBox formatKP1Buttons() {
@@ -188,9 +193,7 @@ public class KeypadGUI extends Application{
         lightBox.setAlignment(Pos.CENTER);
         double lightRadius = 10;
 
-//        Circle redLight = new Circle(lightRadius, RED);
-//        Circle yellowLight = new Circle(lightRadius, YELLOW);
-//        Circle greenLight = new Circle(lightRadius, GREEN);
+
         Circle redLight = new Circle(lightRadius, GREY);
         Circle yellowLight = new Circle(lightRadius, GREY);
         Circle greenLight = new Circle(lightRadius, GREY);
@@ -221,6 +224,9 @@ public class KeypadGUI extends Application{
         starBtn.setOnAction((ActionEvent event) -> {
             System.out.println(event.getSource());
             keyQueue2.addKeyPress(starBtn.getText().charAt(0));
+            redLight2Off();
+            greenLight2Off();
+            yellowLight2Off();
         });
         kp2_keys[10] = starBtn;
 
@@ -230,9 +236,10 @@ public class KeypadGUI extends Application{
         poundBtn.setOnAction((ActionEvent event) -> {
             System.out.println(event.getSource());
             keyQueue2.addKeyPress(poundBtn.getText().charAt(0));
-//            while(keyQueue1.hasNext()){
-//                System.out.println(keyQueue1.pop());
-//            }
+            redLight2On();
+            greenLight2On();
+            yellowLight2On();
+
         });
         kp2_keys[11] = poundBtn;
     }
@@ -250,11 +257,6 @@ public class KeypadGUI extends Application{
         thirdRow.setAlignment(Pos.CENTER);
         fourthRow.setAlignment(Pos.CENTER);
 
-//        keyBox.setPadding(new Insets(25));
-//        firstRow.setPadding(new Insets(25));
-//        secondRow.setPadding(new Insets(25));
-//        thirdRow.setPadding(new Insets(25));
-//        fourthRow.setPadding(new Insets(25));
 
         for(int i=1; i<4; i++) {
             firstRow.getChildren().add(kp2_keys[i]);
@@ -274,4 +276,76 @@ public class KeypadGUI extends Application{
         return keyBox;
     }
 
+    public void redLight1On(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(0);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle redLight = (Circle)lightBox.getChildren().get(0);
+        redLight.setFill(RED);
+    }
+    public void redLight1Off(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(0);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle redLight = (Circle)lightBox.getChildren().get(0);
+        redLight.setFill(GREY);
+    }
+    public void yellowLight1On(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(0);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle yellowLight = (Circle)lightBox.getChildren().get(1);
+        yellowLight.setFill(YELLOW);
+    }
+    public void yellowLight1Off(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(0);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle yellowLight = (Circle)lightBox.getChildren().get(1);
+        yellowLight.setFill(GREY);
+    }
+    public void greenLight1On(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(0);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle greenLight = (Circle)lightBox.getChildren().get(2);
+        greenLight.setFill(GREEN);
+    }
+    public void greenLight1Off(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(0);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle greenLight = (Circle)lightBox.getChildren().get(2);
+        greenLight.setFill(GREY);
+    }
+    public void redLight2On(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(2);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle redLight = (Circle)lightBox.getChildren().get(0);
+        redLight.setFill(RED);
+    }
+    public void redLight2Off(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(2);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle redLight = (Circle)lightBox.getChildren().get(0);
+        redLight.setFill(GREY);
+    }
+    public void yellowLight2On(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(2);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle yellowLight = (Circle)lightBox.getChildren().get(1);
+        yellowLight.setFill(YELLOW);
+    }
+    public void yellowLight2Off(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(2);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle yellowLight = (Circle)lightBox.getChildren().get(1);
+        yellowLight.setFill(GREY);
+    }
+    public void greenLight2On(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(2);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle greenLight = (Circle)lightBox.getChildren().get(2);
+        greenLight.setFill(GREEN);
+    }
+    public void greenLight2Off(){
+        VBox kpBox = (VBox)mainBox.getChildren().get(2);
+        HBox lightBox = (HBox)kpBox.getChildren().get(0);
+        Circle greenLight = (Circle)lightBox.getChildren().get(2);
+        greenLight.setFill(GREY);
+    }
 }
