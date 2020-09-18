@@ -15,14 +15,22 @@ import javafx.scene.shape.Circle;
 public class KeypadGUI extends Application{
 
     private Stage primaryStage;
+    KeyQueue keyQueue1;
+    KeyQueue keyQueue2;
     Button[] kp1_keys;
     Button[] kp2_keys;
     Color RED = Color.valueOf("CRIMSON");
     Color YELLOW = Color.valueOf("YELLOW");
     Color GREEN = Color.valueOf("LIME");
+    Color GREY = Color.valueOf("DARKSLATEGREY");
 
-    KeypadGUI ( Stage primaryStage){
-        System.out.println("KeypadGUI constructor");
+    KeypadGUI ( Stage primaryStage, KeyQueue kq1,KeyQueue kq2){
+//        System.out.println("KeypadGUI constructor");
+
+        //Get reference to the KeyQueue
+        keyQueue1 = kq1;
+        keyQueue2 = kq2;
+
         this.primaryStage = primaryStage;
 
         try {
@@ -74,9 +82,13 @@ public class KeypadGUI extends Application{
         lightBox.setAlignment(Pos.CENTER);
         double lightRadius = 10;
 
-        Circle redLight = new Circle(lightRadius, RED);
-        Circle yellowLight = new Circle(lightRadius, YELLOW);
-        Circle greenLight = new Circle(lightRadius, GREEN);
+//        Circle redLight = new Circle(lightRadius, RED);
+//        Circle yellowLight = new Circle(lightRadius, YELLOW);
+//        Circle greenLight = new Circle(lightRadius, GREEN);
+
+        Circle redLight = new Circle(lightRadius, GREY);
+        Circle yellowLight = new Circle(lightRadius, GREY);
+        Circle greenLight = new Circle(lightRadius, GREY);
 
         lightBox.getChildren().addAll(redLight,yellowLight,greenLight);
         return lightBox;
@@ -92,7 +104,8 @@ public class KeypadGUI extends Application{
             btn.setText(Integer.toString(i));
 
             btn.setOnAction((ActionEvent event) -> {
-                System.out.println(event.getSource());
+                System.out.println(btn.getText());
+                keyQueue1.addKeyPress(btn.getText().charAt(0));
             });
 
             kp1_keys[i] = btn;
@@ -103,6 +116,7 @@ public class KeypadGUI extends Application{
         starBtn.setText("*");
         starBtn.setOnAction((ActionEvent event) -> {
             System.out.println(event.getSource());
+            keyQueue1.addKeyPress(starBtn.getText().charAt(0));
         });
         kp1_keys[10] = starBtn;
 
@@ -110,7 +124,12 @@ public class KeypadGUI extends Application{
         Button poundBtn = new Button();
         poundBtn.setText("#");
         poundBtn.setOnAction((ActionEvent event) -> {
-            System.out.println(event.getSource());
+
+            keyQueue1.addKeyPress(poundBtn.getText().charAt(0));
+//            while(keyQueue1.hasNext()){
+//                System.out.println(keyQueue1.pop());
+//            }
+
         });
         kp1_keys[11] = poundBtn;
     }
@@ -127,12 +146,6 @@ public class KeypadGUI extends Application{
         secondRow.setAlignment(Pos.CENTER);
         thirdRow.setAlignment(Pos.CENTER);
         fourthRow.setAlignment(Pos.CENTER);
-
-//        keyBox.setPadding(new Insets(25));
-//        firstRow.setPadding(new Insets(25));
-//        secondRow.setPadding(new Insets(25));
-//        thirdRow.setPadding(new Insets(25));
-//        fourthRow.setPadding(new Insets(25));
 
         for(int i=1; i<4; i++) {
             firstRow.getChildren().add(kp1_keys[i]);
@@ -175,9 +188,12 @@ public class KeypadGUI extends Application{
         lightBox.setAlignment(Pos.CENTER);
         double lightRadius = 10;
 
-        Circle redLight = new Circle(lightRadius, RED);
-        Circle yellowLight = new Circle(lightRadius, YELLOW);
-        Circle greenLight = new Circle(lightRadius, GREEN);
+//        Circle redLight = new Circle(lightRadius, RED);
+//        Circle yellowLight = new Circle(lightRadius, YELLOW);
+//        Circle greenLight = new Circle(lightRadius, GREEN);
+        Circle redLight = new Circle(lightRadius, GREY);
+        Circle yellowLight = new Circle(lightRadius, GREY);
+        Circle greenLight = new Circle(lightRadius, GREY);
 
         lightBox.getChildren().addAll(redLight,yellowLight,greenLight);
         return lightBox;
@@ -193,6 +209,7 @@ public class KeypadGUI extends Application{
 
             btn.setOnAction((ActionEvent event) -> {
                 System.out.println(event.getSource());
+                keyQueue2.addKeyPress(btn.getText().charAt(0));
             });
 
             kp2_keys[i] = btn;
@@ -203,6 +220,7 @@ public class KeypadGUI extends Application{
         starBtn.setText("*");
         starBtn.setOnAction((ActionEvent event) -> {
             System.out.println(event.getSource());
+            keyQueue2.addKeyPress(starBtn.getText().charAt(0));
         });
         kp2_keys[10] = starBtn;
 
@@ -211,6 +229,10 @@ public class KeypadGUI extends Application{
         poundBtn.setText("#");
         poundBtn.setOnAction((ActionEvent event) -> {
             System.out.println(event.getSource());
+            keyQueue2.addKeyPress(poundBtn.getText().charAt(0));
+//            while(keyQueue1.hasNext()){
+//                System.out.println(keyQueue1.pop());
+//            }
         });
         kp2_keys[11] = poundBtn;
     }
