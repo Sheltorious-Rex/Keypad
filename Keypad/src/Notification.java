@@ -2,6 +2,7 @@ import javafx.scene.paint.Color;
 
 
 public class Notification {
+    //This file will probably need considerable modification?
 
     //Only one color active
     private Color active;
