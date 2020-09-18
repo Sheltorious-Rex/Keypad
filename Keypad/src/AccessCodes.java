@@ -17,7 +17,7 @@ public class AccessCodes {
 
     public AccessCodes(){
         try{
-            Scanner scanner = new Scanner(new File("SD_Card.txt"));
+            Scanner scanner = new Scanner(new File("Keypad/resources/SD_Card.txt"));
             /*get the manager and user code from the file. The manager code will
             always be first line, user code will always be second line.*/
             managerCode = scanner.nextLine();//default = "0000"
