@@ -15,6 +15,9 @@ public class AccessCodes {
     private String managerCode;//the system's manager code
     private String userCode;//the system's user code
 
+    /**
+    Standard operating Constructor. No inputs. Gets codes from SD_Card.txt
+    */
     public AccessCodes(){
         try{
             Scanner scanner = new Scanner(new File("Keypad/resources/SD_Card.txt"));
@@ -25,6 +28,27 @@ public class AccessCodes {
         }
         catch (FileNotFoundException e){
             System.out.println("SD_Card.txt file not found.");
+            System.exit(1);
+        }
+    }
+    /**
+    Overloaded constructor for Demo. Takes a String as input which would
+    be a File path.
+    Can use this one for the demo's two Controller threads, if we choose,
+    so that they are not trying to access the same file at the same time.
+    There are two SD_Card files now. One is 'SD_Card.txt' and the other is
+    'SD_Card2.txt'
+    */
+    public AccessCodes(String filePath){
+        try{
+            Scanner scanner = new Scanner(new File(filePath));
+            /*get the manager and user code from the file. The manager code will
+            always be first line, user code will always be second line.*/
+            managerCode = scanner.nextLine();//default = "0000"
+            userCode = scanner.nextLine();   //default = "9999"
+        }
+        catch (FileNotFoundException e){
+            System.out.println(filePath + " not found.");
             System.exit(1);
         }
     }
@@ -53,7 +77,6 @@ public class AccessCodes {
         }
         return true;
     }
-    
      /**
      * A method to change userCode. 
      * newUserode already checked for validity
