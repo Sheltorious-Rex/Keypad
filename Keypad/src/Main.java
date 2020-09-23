@@ -4,11 +4,8 @@ import javafx.stage.Stage;
 //<<<<<<< HEAD
 public class Main extends Application {
 
-
-
 	@Override
 	public void start(Stage primaryStage) {
-
 
 		AccessCodes accessCodes1 = new AccessCodes();
 		KeypadReceiver keypadReceiver1 = new KeyQueue();
