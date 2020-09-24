@@ -34,7 +34,10 @@ public class Timer {
     }
 
 
-    //todo need to add this to SAD document
+    /**
+     * Checks whether this timer is active.
+     * @return
+     */
     public boolean isRunning(){
         return (time == 0) ? false : true;
     }

@@ -127,7 +127,11 @@ public class AccessCodes {
         }
     }
 
-
+    /**
+     * Overloaded constructor takes an identifying sd card number to know which
+     * sd card passwords to load.
+     * @param number
+     */
     public AccessCodes(int number){
         String filePath = "resources" + ((number == 2) ? "/SD_Card2.txt":"/SD_Card.txt");
         try{

@@ -59,6 +59,9 @@ public class KPSimController {
 
     private Stage stage;
 
+    /**
+     * The initializer for this controller.
+     */
     @FXML
     public void initialize(){
         //Lets add imageBackgrounds to our keypads!
@@ -81,9 +84,11 @@ public class KPSimController {
 
         Controller controllerOne = new Controller(imageView,circlesOne,1);
         Thread threadOne = new Thread(controllerOne);
+        threadOne.setDaemon(true);
 
         Controller controllerTwo = new Controller(imageView,circlesTwo,2);
         Thread threadTwo = new Thread(controllerTwo);
+        threadTwo.setDaemon(true);
 
         setButtonColors();
         setButtonsAction(controllerOne.getKeyQueue().getKeyListener(),
@@ -92,6 +97,9 @@ public class KPSimController {
         threadTwo.start();
     }
 
+    /**
+     * Adds the buttons to list for easy manipulation. We change colors here as well.
+     */
     private void setButtonColors(){
         buttonListOne = new ArrayList<>();
         buttonListOne.add(button0One);
@@ -127,6 +135,11 @@ public class KPSimController {
         }
     }
 
+    /**
+     * Sets the event actions of our buttons.
+     * @param kListenerOne
+     * @param kListenerTwo
+     */
     private void setButtonsAction(EventHandler<ActionEvent> kListenerOne,
                                   EventHandler<ActionEvent> kListenerTwo){
         for (int i = 0; i < 12; i++) {
@@ -138,11 +151,18 @@ public class KPSimController {
         }
     }
 
+    /**
+     * Sets the stage of this controller.
+     * @param stage
+     */
     public void setStage(Stage stage){
         this.stage = stage;
     }
 
 
+    /**
+     * This is something used to set behavior when exiting the GUI.
+     */
     public void setStageClose(){
         //Stage stage = (Stage) gpKeypadOne.getScene().getWindow();
         stage.setOnCloseRequest((WindowEvent e) -> {

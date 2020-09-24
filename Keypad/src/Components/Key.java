@@ -31,6 +31,10 @@ public class Key {
         return keyCharacters.poll();
     }
 
+    /***
+     * Checks whether the queue has an available key input.
+     * @return
+     */
     public boolean hasNext(){
         return !keyCharacters.isEmpty();
     }

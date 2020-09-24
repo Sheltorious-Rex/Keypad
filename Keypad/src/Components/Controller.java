@@ -85,8 +85,6 @@ public class Controller implements Runnable{
     }
 
     private void processInput(char c){
-        System.out.println("Processed char: "+ c);
-
         //If we are already processing request and we receive * or # we ignore
         if(state != 0 && (c == '*' || c == '#')){
             return;

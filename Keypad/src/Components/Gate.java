@@ -28,19 +28,24 @@ public class Gate {
         /*Code to send the locking signal to the physical device Gate*/
     }
 
-
+    /**
+     * Opens the lock, in the GUI this means to change image.
+     * @param imageView
+     * @param whichImage
+     */
     public void openLock(ImageView imageView, int whichImage) {
-
-
-        System.out.println("opened door");
         Image imageOne = new Image(getClass().getResource("/IMG_2657.JPG").toString());
         Image imageTwo = new Image(getClass().getResource("/IMG_2658.JPG").toString());
         imageView.setImage((whichImage == 1) ? imageOne : imageTwo);
     }
 
+    /**
+     * Closes the lock, in the GUI this means changing to a closed image.
+     * @param imageView
+     * @param whichImage
+     */
     public void closeLock(ImageView imageView, int whichImage){
 
-        System.out.println("Closed door");
         Image imageOne = new Image(getClass().getResource("/IMG_2657.JPG").toString());
         Image imageTwo = new Image(getClass().getResource("/IMG_2658.JPG").toString());
         imageView.setImage((whichImage == 1) ? imageOne: imageTwo);
